@@ -31,13 +31,14 @@ Ticket generator and scanner , made for use for the NIE CS Freshers Party 2021. 
  ![The main screen](/images/Main_Screen.png)
 - Only difference is that instead of a cat you'll see your beautiful face from your laptops webcam. (If you're on a desktop PC or dont have a webcam you'll just see a beautiful error.)
 - Everything is now setup to scan and let people in. 
-- When guests start showing up. Ask them to show a copy of the pdf ticket you've (hopefully) sent over. Put the QR code near your webcam and the app should recognize and mark it as shown below.
+- When guests start showing up. Ask them to show a copy of the pdf ticket you've (hopefully) sent over. Put the QR code near your webcam and the app should recognize and mark it as shown below. This will also freeze the video stream so dont worry.
 ![A QR code was found!!](/images/qr_code_found.png)
 - The contents of the QR code is displayed underneath after decoding. Your Primary check is to make sure that the name and other details you've added in your copy of this code match that which is found on the ticket. If they dont, the ticket is invalid straight off the bat , no need to query the database at all.
 - If those match you can click on the `Check If Valid` button below the data , which sends a request to the same flask server to check if the ticket is valid or not (which is indicated by the isValid field in the response ). Depending on this one of two things will happen
 - - (A) The ticket is valid , then the ticket holders details present in the database show up and a  nice satisfying check mark is show as well. It might look like something similar to the image down below ![A valid ticket](/images/valid_ticket.png)
 - - (B) Or the ticket is invalid for some reason ( eg already used before, or forged etc ). In which case a cross mark shows up along with the reason why the ticket is invalid. ![A invalid ticket](/images/invalid_ticket.png)
 - If the ticket is valid , then the app also marks it as used in the database preventing it from being used any further.
+- To continue scanning more tickets, just click the `Reset Scanner` button below and it should start the video stream again. This lets you scan as many tickets as required. Use the same button in case of rare false positives too caused by bad lighting or a bad t-shirt.
 
 ##### Important Note
 The app might give some false positives for the qr detection if you're in really bad lighting. So make so you have enough light for things to work properly.
