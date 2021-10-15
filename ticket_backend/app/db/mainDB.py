@@ -17,7 +17,7 @@ def checkTicketValid(tid:str)->dict:
 		return {"status":200,"message":{"isValid":False,"message":"Ticket does not exist in database"}}
 
 	if not userData['isValid']:
-		return {"status":200,"message":{"isValid":False,"message":"Ticket has already been scanner before."}}
+		return {"status":200,"message":{"isValid":False,"message":"Ticket has already been scanned before."}}
 
 	try:
 		ticketsCollection.update_one({"_id":tid},{"$set":{"isValid":False}})
