@@ -43,9 +43,10 @@ Ticket generator and scanner , made for use for the NIE CS Freshers Party 2021. 
 ##### Important Note
 The app might give some false positives for the qr detection if you're in really bad lighting. So make so you have enough light for things to work properly.
 
+#### DONE
+- Currently all this does is just generate the pdf tickets and store them as files. Maybe add a way to email the tickets to the guests during generation itself. Possibly a simple Gmail SMTP service or something similar to AWS SES if needed .
 
 #### TO DO
-- Currently all this does is just generate the pdf tickets and store them as files. Maybe add a way to email the tickets to the guests during generation itself. Possibly a simple Gmail SMTP service or something similar to AWS SES if needed .
 - I was unable to make this work with android browsers for some reason. If this was done , the code could be slightly modified so that it can be hosted and the scanning can be done anywhere , through ones phone . This would be much easier to handle on site and plus would look waay cooler.
 - Maybe add ways for accounts to be created and the events managed. With each user having a list of events, and each event having a list of guests and tickets. This could also be hosted and provide a way for people who arent so tech inclined to use this app as well. Might also be able to give out good stats about the event and such.
 
