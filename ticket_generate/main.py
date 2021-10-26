@@ -11,7 +11,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 import smtplib
+import csv
 
+tickets = []
+
+with open('Platinum_registrations.csv',encoding='utf-8') as csvfile:
+	spamreader = csv.DictReader(csvfile, delimiter=',')
+
+	for row in spamreader:
+		tickets.append(row)
 
 load_dotenv()
 
@@ -49,18 +57,18 @@ server.starttls()
 server.login(EMAIL, PASSWORD)
 
 
-tickets = [
-	{'name': 'Noah Reilly', 'type': "GOLD","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"A"},
-	{'name': 'Lori Stone', 'type': "PLATINUM","branch":"ISE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
-	{'name': 'Brian Wilkerson', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"B"},
-	{'name': 'Jose Jackson', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
-	{'name': 'Melanie White', 'type': "GOLD","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":5,"section":"A"},
-	{'name': 'Mary White', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"A"},
-	{'name': 'Angela Cox', 'type': "PLATINUM","branch":"Mech","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
-	{'name': 'Scott Scott', 'type': "GOLD","branch":"CSE","EEE":"niefreshers2k21@gmail.com","semester":3,"section":"A"},
-	{'name': 'Kathryn Romero', 'type': "PLATINUM","branch":"ISE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
-	{'name': 'Richard Benitez', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":7,"section":"B"}
-]
+# tickets = [
+# 	{'name': 'Noah Reilly', 'type': "GOLD","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"A"},
+# 	{'name': 'Lori Stone', 'type': "PLATINUM","branch":"ISE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
+# 	{'name': 'Brian Wilkerson', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"B"},
+# 	{'name': 'Jose Jackson', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
+# 	{'name': 'Melanie White', 'type': "GOLD","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":5,"section":"A"},
+# 	{'name': 'Mary White', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":1,"section":"A"},
+# 	{'name': 'Angela Cox', 'type': "PLATINUM","branch":"Mech","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
+# 	{'name': 'Scott Scott', 'type': "GOLD","branch":"CSE","EEE":"niefreshers2k21@gmail.com","semester":3,"section":"A"},
+# 	{'name': 'Kathryn Romero', 'type': "PLATINUM","branch":"ISE","email":"niefreshers2k21@gmail.com","semester":5,"section":"B"},
+# 	{'name': 'Richard Benitez', 'type': "PLATINUM","branch":"CSE","email":"niefreshers2k21@gmail.com","semester":7,"section":"B"}
+# ]
 
 paperData = {
 	'paperWidth': 3.8,
